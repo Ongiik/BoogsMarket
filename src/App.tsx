@@ -59,7 +59,18 @@ const App = () => {
     })
   };
 
-  const handleRemoveFromCart = () => null;
+  const handleRemoveFromCart = (id: number) => {
+    setCartItems(prev => (
+      prev.reduce((ack, item) => {
+        if (item.id === id) {
+          if (item.amount === 1) return ack; //if removing a singular item, remove from the array.
+          return [...ack, { ...item, amount: item.amount - 1}] //otherwise remove 1 from amount.
+        } else {
+          return [...ack, item];
+        }
+      }, [] as CartItemType[]) //specify reduce
+    ))
+  };
 
   if (isLoading) return <LinearProgress />;
   if (error) return <div>Something went wrong ...</div>
