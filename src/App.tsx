@@ -22,10 +22,6 @@ export type CartItemType = {
   amount: number;
 };
 
-const itemId = 9266;
-
-//A promise is called a generic in typescript.
-
 const getProducts = async (): Promise<CartItemType[]> =>
   await (await fetch('https://fakestoreapi.com/products')).json();
 
