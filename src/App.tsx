@@ -85,6 +85,7 @@ const App = () => {
           <AddShoppingCartIcon />
         </Badge>
       </StyledButton>
+      <h1 className="title">Boogs Market</h1>
       <Grid container spacing={3}>
         {data?.map(item => (
           <Grid item key={item.id} xs={12} sm={4}>
